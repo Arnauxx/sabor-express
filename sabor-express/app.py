@@ -1,6 +1,6 @@
 import os
 
-restaurantes = []
+restaurantes = ['Pizza', 'Sushi']
 
 def exibir_nome_do_programa():
       print("""
@@ -12,6 +12,13 @@ def exibir_nome_do_programa():
 ╚═════╝░╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝  ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░
       """)
 
+def limpar_tela():
+      os.system('cls')
+
+def exibe_retorno_menu_principal():
+      input('\nDigite uma tecla para voltar ao menu principal')
+      main()                        
+
 def exibir_opcoes():
       print('1. Cadastrar restaurante')
       print('2. Listar restaurante')
@@ -19,22 +26,29 @@ def exibir_opcoes():
       print('4. Sair\n')
 
 def finalizar_app():
-      os.system('cls')
+      limpar_tela()
       print('Encerrando aplicativo...\n')
 
 def opcao_invalida():
       print('Opção inválida!\n')      
-      input('Digite uma tecla para voltar ao menu principal')
-      main()
+      exibe_retorno_menu_principal()
 
 def cadastrar_novo_restaurante():
-      os.system('cls')
+      limpar_tela()
       print('Cadastro de novos restaurantes\n')
       nome_do_restaurante = input('Digite o nome do restaurante: ')
       restaurantes.append(nome_do_restaurante)
       print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
-      input('Digite uma tecla para voltar ao menu principal')
-      main()
+      exibe_retorno_menu_principal()
+
+def listar_restaurantes():
+      limpar_tela()
+      print('Lista de restaurantes\n')
+
+      for restaurante in restaurantes:
+            print(f'.{restaurante}')
+
+      exibe_retorno_menu_principal()          
 
 def escolher_opcao():
       try:
@@ -42,7 +56,7 @@ def escolher_opcao():
             if opcao_escolhida == 1:
                   cadastrar_novo_restaurante()
             elif opcao_escolhida == 2:
-                  print('Listar restaurante')
+                  listar_restaurantes()
             elif opcao_escolhida == 3:
                   print('Ativar restaurante')
             elif opcao_escolhida == 4:
@@ -53,7 +67,7 @@ def escolher_opcao():
             opcao_invalida()                     
 
 def main():
-      os.system('cls')
+      limpar_tela()
       exibir_nome_do_programa()
       exibir_opcoes()
       escolher_opcao()         
