@@ -12,11 +12,12 @@ def exibir_nome_do_programa():
 ╚═════╝░╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝  ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░╚═════╝░
       """)
 
-def limpar_tela():
+def limpar_tela(texto = ''):
       os.system('cls')
-
+      print(texto)
+      
 def exibe_retorno_menu_principal():
-      input('\nDigite uma tecla para voltar ao menu principal')
+      input('\nDigite uma tecla para voltar ao menu principal ')
       main()                        
 
 def exibir_opcoes():
@@ -26,24 +27,21 @@ def exibir_opcoes():
       print('4. Sair\n')
 
 def finalizar_app():
-      limpar_tela()
-      print('Encerrando aplicativo...\n')
+      limpar_tela('Encerrando aplicativo...\n')
 
 def opcao_invalida():
       print('Opção inválida!\n')      
       exibe_retorno_menu_principal()
 
 def cadastrar_novo_restaurante():
-      limpar_tela()
-      print('Cadastro de novos restaurantes\n')
+      limpar_tela('Cadastro de novos restaurantes\n')
       nome_do_restaurante = input('Digite o nome do restaurante: ')
       restaurantes.append(nome_do_restaurante)
       print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
       exibe_retorno_menu_principal()
 
 def listar_restaurantes():
-      limpar_tela()
-      print('Lista de restaurantes\n')
+      limpar_tela('Lista de restaurantes\n')
 
       for restaurante in restaurantes:
             print(f'.{restaurante}')
