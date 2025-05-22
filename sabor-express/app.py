@@ -15,6 +15,7 @@ def exibir_nome_do_programa():
       """)
 
 def limpar_tela(texto = ''):
+      '''Essa função é responsável por limpar o console para nova exibição'''
       os.system('cls')
       linha = '*' * (len(texto))
       print(linha)
@@ -40,6 +41,17 @@ def opcao_invalida(erro = ''):
       exibe_retorno_menu_principal()
 
 def cadastrar_novo_restaurante():
+      '''Essa função é responsável por cadastrar um novo restaurante
+      
+      Inputs: 
+      - Nome do restaurante
+      - Categoria do restaurante
+
+      Outputs:
+      - Adiciona um novo restaurante a lista de restaurante
+      
+      '''
+
       limpar_tela('Cadastro de novos restaurantes')
       nome_do_restaurante = input('Digite o nome do restaurante: ')
       categoria = input(f'Digite o nome da categoria do restaurante {nome_do_restaurante}: ')
